@@ -1,4 +1,8 @@
 package org.example;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 
 class WeatherData {
     private String date;
@@ -208,7 +212,28 @@ public class Main {
      * This method reads data from a CSV file and returns an array of WeatherData objects.
      */
     public static WeatherData[] readWeatherDataFromCSV(String fileName) {
-        // TODO: Implement the logic to read from a CSV file
-        return null;
+        ArrayList<WeatherData> weatherDataList = new ArrayList<>();
+
+        try (BufferedReader br= new BufferedReader(new FileReader(fileName))) {
+            String line;
+            // Skip the header line
+            br.readLine();
+
+            while ((line = br.readLine()) != null) {
+                //split the line into fields
+                String[] splitLine = line.split(",");
+
+                //extract the values   
+                String date = splitLine[0];
+                double temperature = Double.parseDouble(splitLine[1]);
+                double humidity = Double.parseDouble(splitLine[2]);
+
+                //create a WeatherData object and add it to the list
+
+                WeatherData weatherData = new WeatherData(date, temperature, humidity);
+                weatherDataList.add(weatherData);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred " + e.getMessage());
     }
 }
