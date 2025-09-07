@@ -24,6 +24,15 @@ class WeatherData {
     public double getHumidity() {
         return humidity;
     }
+
+    // Method to check if it's a hot day (temperature above 30 degrees)
+    public boolean isHotDay() {
+        return temperature > 30;
+    }
+    // Method to check if it's a humid day (humidity above 70%)
+    public boolean isHumidDay() {
+        return humidity > 70;
+    }
 }
 
 // This is the main class of our Weather Data Analyzer program
@@ -116,7 +125,7 @@ public class Main {
      * - Use the getter methods to retrieve the values from the object and print them to the console.
      */
     public static void createWeatherDataObject() {
-        WeatherData weatherData = new WeatherData(date: "2025-09-07", temperature: 28.5, humidity: 65.0);
+        WeatherData weatherData = new WeatherData(date: "2025-09-07", temperature: 36.0, humidity: 75.0);
         System.out.println("Date: " + weatherData.getDate());
         System.out.println("Temperature: " + weatherData.getTemperature()); 
         System.out.println("Humidity: " + weatherData.getHumidity());
@@ -134,7 +143,9 @@ public class Main {
      * - Print out whether it is a hot day and/or a humid day.
      */
     public static void analyzeSingleDayWeather() {
-        // TODO: Implement the isHotDay() and isHumidDay() methods in the WeatherData class
+        WeatherData weatherData = new WeatherData(date: "2025-09-07", temperature: 36.0, humidity: 75.0);
+        System.out.println("Is it a hot day? " + weatherData.isHotDay());
+        System.out.println("Is it a humid day? " + weatherData.isHumidDay());
     }
 
     /**
