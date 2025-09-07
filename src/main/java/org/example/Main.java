@@ -159,7 +159,18 @@ public class Main {
      * - In this method, create an array of WeatherData objects, call `calculateAverageTemperature`, and print the result.
      */
     public static void analyzeMultipleDaysWeather() {
-        // TODO: Create an array of WeatherData objects and implement a method to calculate the average temperature
+        WeatherData[] data = {
+            new WeatherData("2025-09-01", 28.0, 65.0),
+            new WeatherData("2025-09-02", 30.5, 70.0),
+            new WeatherData("2025-09-03", 32.0, 75.0),
+            new WeatherData("2025-09-04", 29.0, 60.0),
+            new WeatherData("2025-09-05", 31.5, 80.0),
+            new WeatherData("2025-09-06", 27.0, 55.0),
+            new WeatherData("2025-09-07", 36.0, 75.0)
+        };
+
+        double averageTemp = calculateAverageTemperature(data);
+        System.out.println("Average Temperature: " + averageTemp);
     }
 
     /**
@@ -168,7 +179,11 @@ public class Main {
      * This method takes an array of WeatherData objects and returns the average temperature.
      */
     public static double calculateAverageTemperature(WeatherData[] data) {
-        return 0;
+        double sum = 0;
+        for (WeatherData day: data) {
+            sum += day.getTemperature();
+        }
+        return sum / data.length;
     }
 
     /**
