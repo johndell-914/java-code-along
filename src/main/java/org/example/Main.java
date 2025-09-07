@@ -5,14 +5,14 @@ class WeatherData {
     private double temperature;
     private double humidity;
 
-    // Constructor
+    // Constructor: takes in values for all fields and assigns them to instance variables
     public WeatherData(String date, double temperature, double humidity) {
         this.date = date;
         this.temperature = temperature;
         this.humidity = humidity;
     }
 
-    // Getter methods
+    // Getter methods: allows other classes to access the data
     public String getDate() {
         return date;
     }
@@ -116,7 +116,10 @@ public class Main {
      * - Use the getter methods to retrieve the values from the object and print them to the console.
      */
     public static void createWeatherDataObject() {
-        // TODO: Create a WeatherData object and print its values
+        WeatherData weatherData = new WeatherData(date: "2025-09-07", temperature: 28.5, humidity: 65.0);
+        System.out.println("Date: " + weatherData.getDate());
+        System.out.println("Temperature: " + weatherData.getTemperature()); 
+        System.out.println("Humidity: " + weatherData.getHumidity());
     }
 
     /**
