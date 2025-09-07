@@ -8,6 +8,7 @@ class WeatherData {
 public class Main {
 
     // The main method is the entry point of any Java application
+    //this is a test comment
     public static void main(String[] args) {
         // Greet the user and explain what the program does
         System.out.println("Welcome to the Weather Data Analyzer!");
