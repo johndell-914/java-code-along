@@ -197,7 +197,9 @@ public class Main {
      * - Print the average temperature from the CSV data to the console.
      */
     public static void analyzeWeatherDataFromCSV() {
-        // TODO: Implement the readWeatherDataFromCSV method and analyze the data
+       WeatherData[] csvData = readWeatherDataFromCSV("weather_data.csv");
+       double averateTemperature = calculateAverageTemperature(csvData);
+       System.out.println("Average Temperature from CSV: " + averateTemperature);
     }
 
     /**
